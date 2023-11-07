@@ -1,0 +1,52 @@
+{% extends 'base.html' %} 
+
+{% block title %}SignUp Form{% endblock title %} 
+
+{% block style %} 
+a{ text-decoration: none; } 
+{% endblock style %} 
+
+{% block content %}
+
+<div class="container">
+  <p class="mt-4 text-center fs-2">Signup Form</p>
+
+  <div class="">
+    <!-- SignUp Form -->
+    <form action="" method="post" novalidate>
+      {% csrf_token %}
+
+      <!-- SignUp form fields -->
+      {% for fm in form %}
+      <div class="my-3">
+        <div class="row g-3 align-items-center">
+            <div class="col-2">
+                <label for="inputPassword6" class="col-form-label">{{fm.label_tag}}</label>
+            </div>
+            <div class="col-6">
+                {{fm}}
+            </div>
+            <div class="col-4">
+                <span id="passwordHelpInline" class="form-text text-danger opacity-50">
+                    {{fm.errors|striptags}}
+                </span>
+            </div>
+        </div>
+      </div>
+      {% endfor %}
+
+      <input
+        class="btn btn-primary btn-sm my-3"
+        type="submit"
+        value="Create Account"
+      />
+    </form>
+
+    <p>
+      Already have an account ?
+      <a href="{% url 'login' %}">Login</a>
+    </p>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+
+{% block title %}Home{% endblock title %} 
+
+{% block content %} 
+{% include 'navbar.html' %}
+
+<div class="container">
+  {% comment %} <form id="searchForm">
+      <div class="my-3">
+          <input class="form-control" type="text" id="cityName" name="city" placeholder="Type to search...">
+          <button type="button" id="searchBtn" class="btn btn-primary">Search</button>
+      </div>
+  </form>   {% endcomment %}
+
+  <form method="get">
+    {{ form.as_p }}
+    <button type="submit">search</button>
+  </form>
+
+</div>
+
+{% endblock content %}
